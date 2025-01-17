@@ -4,14 +4,28 @@ fun main() {
     val persona3 = Persona("Amancio", 120.0, 1.99)
 
     println(persona1)
+    println(persona2)
+    println(persona3)
     while (true) {
         println("Introduce el nombre de la persona 1: ")
-        val nombre = readln().isNotBlank()
-
+        val nombre = readln()
+        if (nombre.isNotBlank()) {
+            persona1.nombre = nombre
+            break
+        }else{
         print("Vuelve a intentarlo.")
-        persona1.nombre = nombre.toString()
-        break
+
+        }
     }
+    println("${persona1.nombre} tiene un peso de ${persona1.peso}kg y una altura de ${persona1.altura}m")
+
+    println("Pesa ${persona3.peso}, mide ${persona3.altura} y tiene un IMC de ${persona3.calcularImc()}")
+    println("Introduce la altura de la persona 3: ")
+    val altura = readln().toDouble()
+    persona3.altura = altura
+    println("Pesa ${persona3.peso}, mide ${persona3.altura} y tiene un IMC de ${persona3.calcularImc()}")
+
+    persona2.altura = persona3.altura
     println(persona2)
     println(persona3)
 }
